@@ -12,7 +12,7 @@ import Title from "./title";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "10px 0 20px",
-    background: "linear-gradient(30deg, #84e1e1 20%, #adebeb 80%)",
+    background: "#99e6e6",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },

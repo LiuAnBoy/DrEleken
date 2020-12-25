@@ -9,6 +9,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "100vw",
     maxWidth: "100%",
+    background: "#f4fafd",
+    padding: "20px 0"
   },
   container: {
     display: "flex",

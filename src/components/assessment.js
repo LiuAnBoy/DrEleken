@@ -18,7 +18,7 @@ import { Button, Typography } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "20px 0",
-    background: "linear-gradient(45deg, #5bd7d7 20%, #adebeb 80%)",
+    background: "#6fdcdc",
   },
   card: {
     width: 800,
@@ -139,7 +139,7 @@ const assessment = () => {
 
   const onSubmit = () => {
     console.log(value);
-  }
+  };
 
   const classes = useStyles();
   return (
