@@ -13,7 +13,6 @@ module.exports = {
     author: "@CLA",
   },
   plugins: [
-    `gatsby-plugin-sass`,
     `gatsby-plugin-material-ui`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

@@ -12,6 +12,10 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import Sidebar from "./sidebar";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100vw",
+    maxWidth: "100%",
+  },
   appBar: {
     display: "flex",
     alignItems: "center",
@@ -101,7 +105,7 @@ export const Header = props => {
   };
 
   return (
-    <div id="back-to-top-anchor">
+    <div id="back-to-top-anchor" className={classes.root}>
       <AppBar position="fixed" className={classes.appbar} color="inherit">
         <Toolbar className={classes.toolBar}>
           <Link to="/">

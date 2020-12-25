@@ -1,37 +1,134 @@
-import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import Img from "gatsby-image"
+import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import Img from "gatsby-image";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+
+import about from "../constants/about";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100vw",
+    maxWidth: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    background: "#e6e6e6",
+    padding: "20px 0",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+    },
+  },
+  iconSection: {
+    width: 400,
+    height: 400,
+    background: "#e6e6e6",
+    padding: "40px 0",
+    [theme.breakpoints.down("sm")]: {
+      width: 375,
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: 375,
+      height: 375,
+      padding: 0,
+      margin: "0 auto",
+    },
+  },
+  cardSection: {
+    width: 800,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    [theme.breakpoints.down("lg")]: {
+      width: 800,
+    },
+    [theme.breakpoints.down("md")]: {
+      width: 550,
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: 300,
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: 343,
+      margin: "0 auto",
+      display: "block",
+    },
+  },
+  card: {
+    width: "100%",
+    background: "rgba(255,255,255,0.9)",
+    boxShadow: "none",
+    borderRadius: 8,
+    "&:hover": {
+      boxShadow: "0px 2px 10px -1px rgba(0,0,0,0.2)",
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: "20px 0",
+      display: "block",
+    },
+  },
+  title: {
+    fontSize: 24,
+    margin: "0 0 6px",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1.6vw",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2.8vw",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.5vw",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "6vw",
+    },
+  },
+  typo: {
+    fontSize: 18,
+    fontWeight: 400,
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1.1vw",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.2vw",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1vw",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "4vw",
+    },
+  },
+}));
 
 const AboutUs = () => {
-  const data = useStaticQuery(query)
+  const data = useStaticQuery(query);
+  const classes = useStyles();
   return (
-    <section className="aboutus-section">
-      <div className="img-block">
-        <Img fluid={data.file.childImageSharp.fluid} className="aboutus-img" />
+    <section className={classes.root}>
+      <div className={classes.iconSection}>
+        <Img fluid={data.file.childImageSharp.fluid} />
       </div>
-      <div className="aboutus-content">
-        <div className="aboutus-content-group">
-          <h1 className="about-content-title">量身打造治療計畫</h1>
-          <h4 className="about-content-article">
-            針對每一個獨一無二的孩子，打造專屬的治療計畫。分析造成孩子發育不良的根本原因，制定方案，而不單只以口腔或是牙齒的情況去處理。
-          </h4>
-        </div>
-        <div className="aboutus-content-group">
-          <h1 className="about-content-title">全方位治療</h1>
-          <h4 className="about-content-article">
-          由眾多齒顎醫學美學專家、營養學專家及生長發育專家組建而成，將顏值發育管理、大腦發育、形體發育、呼吸睡眠及營養等領域融入至我們的醫療理念，由一個團隊負責一位孩子。
-          </h4>
-        </div>
-        <div className="aboutus-content-group">
-          <h1 className="about-content-title">守護孩子的健康與自信心</h1>
-          <h4 className="about-content-article">
-          我們創立的目的是為守護所有孩童的健康，讓各地的孩童皆能接受到最好的身心發育管理。我們著重於兒童的成長發育及自信心的建立，比你更在乎孩子的未來、孩子的自信心！
-          </h4>
-        </div>
+      <div className={classes.cardSection}>
+        {about.map(a => {
+          const { id, title, text } = a;
+          return (
+            <Card className={classes.card} key={id}>
+              <CardContent>
+                <div className={classes.title}>{title}</div>
+                <Typography variant="h6" className={classes.typo}>
+                  {text}
+                </Typography>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
     </section>
-  )
-}
+  );
+};
 
 export const query = graphql`
   {
@@ -43,6 +140,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default AboutUs
+export default AboutUs;
