@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -53,16 +53,22 @@ const PrevArrow = props => {
   );
 };
 
+
+
 const introDoc = () => {
   const classes = useStyles();
   const [cIdx, setCidx] = useState(1);
+  const [clientWidth, setClientWidth] = useState();
+
+  useEffect(() => setClientWidth(document.body.clientWidth > 414));
+  console.log(clientWidth)
   const settings = {
     // variableWidth: true,
     className: "center",
     centerMode: true,
     infinite: true,
     centerPadding: 0,
-    slidesToShow: document.body.clientWidth < 376 ? 1 : 3,
+    slidesToShow: clientWidth ? 3 : 1,
     speed: 500,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
