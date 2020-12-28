@@ -10,14 +10,14 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     maxWidth: "100%",
     background: "#f4fafd",
-    padding: "20px 0"
+    padding: "50px 0 50px"
   },
   container: {
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
-    width: "70%",
-    margin: "0 auto",
+    width: "100%",
+    margin: "50px auto 0",
     [theme.breakpoints.down("lg")]: {
       width: "100%",
     },
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
   img: {
     width: 350,
-    margin: "10px 20px",
+    margin: "10px 5px",
     [theme.breakpoints.down("lg")]: {
       width: 400,
     },

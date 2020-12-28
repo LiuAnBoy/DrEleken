@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row",
     justifyContent: "center",
     background: "#e6e6e6",
-    padding: "20px 0",
+    padding: "40px 0 50px",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
@@ -87,7 +87,7 @@ const useStyles = makeStyles(theme => ({
   },
   typo: {
     fontSize: 18,
-    fontWeight: 400,
+    fontWeight: 300,
     [theme.breakpoints.down("lg")]: {
       fontSize: "1.1vw",
     },
@@ -107,7 +107,7 @@ const AboutUs = () => {
   const data = useStaticQuery(query);
   const classes = useStyles();
   return (
-    <section className={classes.root}>
+    <section className={classes.root} id="About-Us">
       <div className={classes.iconSection}>
         <Img fluid={data.file.childImageSharp.fluid} />
       </div>

@@ -11,8 +11,8 @@ import Title from "./title";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "10px 0 20px",
-    background: "#99e6e6",
+    padding: "50px 0 40px",
+    background: "#eafafa",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     width: 450,
     height: 460,
     boxShadow: "none",
-    margin: "20px auto",
+    margin: "50px auto 20px",
     // backgroundColor: "rgba(255,255,255,0.2)",
     transition: theme.transitions.create("transform", {
       duration: ".6s",
@@ -32,10 +32,10 @@ const useStyles = makeStyles(theme => ({
       // boxShadow: "1px 10px 15px black",
     },
     [theme.breakpoints.down("sm")]: {
-      margin: "20px 18px",
+      margin: "50px auto 20px",
     },
     [theme.breakpoints.down("xs")]: {
-      margin: " 10px auto",
+      margin: " 50px auto 10px",
       width: 343,
       height: 390,
     },

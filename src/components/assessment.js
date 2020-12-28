@@ -9,7 +9,6 @@ import FormGroup from "@material-ui/core/FormGroup";
 import Checkbox from "@material-ui/core/Checkbox";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Title from "./title";
 
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
@@ -18,7 +17,7 @@ import { Button, Typography } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "20px 0",
-    background: "#6fdcdc",
+    background: "#acecec",
   },
   card: {
     width: 800,
@@ -31,6 +30,12 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       width: 343,
     },
+  },
+  Title: {
+    fontSize: 48,
+    fontWeight: 300,
+    margin: "30px 0 10px",
+    textAlign: "center",
   },
   qTitle: {
     fontSize: 18,
@@ -56,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     left: "50%",
     transform: "translateX(-50%)",
     background: "#5bd7d7",
-    color: "#fff"
+    color: "#fff",
   },
 }));
 
@@ -143,9 +148,9 @@ const assessment = () => {
 
   const classes = useStyles();
   return (
-    <section className={classes.root}>
+    <section className={classes.root} id="Assessment-List">
       <Card className={classes.card}>
-        <Title title="自評表" />
+        <h1 className={classes.Title}>自評表</h1>
         <CardContent>
           <FormControl component="fieldset">
             <FormLabel className={classes.qTitle}>
@@ -208,17 +213,17 @@ const assessment = () => {
             <FormGroup aria-label="Q3" name="Q3" onClick={handleCheck} row>
               <FormControlLabel
                 control={<CheckBox value="吃東西比較慢" name="Q3" />}
-                label="吃東西比較慢"
+                label={<Typo>吃東西比較慢</Typo>}
               />
               <FormControlLabel
                 control={
                   <CheckBox value="不喜歡咀嚼，只喜歡吃軟爛的食物" name="Q3" />
                 }
-                label="不喜歡咀嚼，只喜歡吃軟爛的食物"
+                label={<Typo>不喜歡咀嚼，只喜歡吃軟爛的食物</Typo>}
               />
               <FormControlLabel
                 control={<CheckBox value="無" name="Q3" />}
-                label="無"
+                label={<Typo>無</Typo>}
               />
             </FormGroup>
             <FormLabel className={classes.qTitle}>
@@ -362,7 +367,11 @@ const assessment = () => {
               />
             </RadioGroup>
           </FormControl>
-          <Button className={classes.btn} variant="contained" onClick={onSubmit}>
+          <Button
+            className={classes.btn}
+            variant="contained"
+            onClick={onSubmit}
+          >
             送出
           </Button>
         </CardContent>

@@ -3,18 +3,11 @@ body {
   padding: 0;
 }
 
-
 .slick-slide > div {
-  margin: 60px 50px;
-  overflow: hidden;
   z-index: 99999;
   box-sizing: border-box;
   overflow: unset;
-  background-color: rgba(0,0,0,0);
-}
-.slick-list {
-  margin: 0 -50px;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .slick-next-arrow {
@@ -24,7 +17,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   cursor: pointer;
 }
 
@@ -35,6 +28,61 @@ body {
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   cursor: pointer;
 }
+
+@media screen and (min-width: 1920px) {
+  .slick-slide > div {
+    margin: 80px 0;
+  }
+  .slick-list {
+    margin: 0 0;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .slick-track {
+    width: 7000px !important;
+  }
+  .slick-slide > div {
+    margin: 60px 0px;
+  }
+  .slick-slide {
+    width: 546px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slick-track {
+    width: 7000px !important;
+  }
+  .slick-list {
+    margin: 0 0px;
+  }
+  .slick-slide > div {
+    margin: 50px 0 10px;
+    height: 280px;
+  }
+  .slick-slide {
+    /* width: 540px; */
+  }
+  .slick-prev-arrow {
+    left: -45px;
+  }
+  .slick-next-arrow {
+    right: -45px;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 414px) {
+  .slick-slide > div {
+    margin: 20px 0;
+    height: 230px;
+  }
+  .slick-prev-arrow {
+    left: 0px;
+  }
+  .slick-next-arrow {
+    right: 0px;
+  }
+} 

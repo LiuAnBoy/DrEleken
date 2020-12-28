@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row-reverse",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(30deg, #84e1e1 20%, #adebeb 80%)",
-    padding: "40px 0",
+    background: "#f4fafd",
+    padding: "50px 0 40px",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
@@ -109,7 +109,7 @@ const childface = () => {
   const classes = useStyles();
 
   return (
-    <section className={classes.root}>
+    <section className={classes.root} id="Child-Face-Control">
       <Img fluid={data.file.childImageSharp.fluid} className={classes.img} />
       <div>
         <Card className={classes.card}>

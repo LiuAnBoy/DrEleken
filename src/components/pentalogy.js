@@ -12,7 +12,7 @@ import Title from "./title";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "0px 0 40px",
-    background: "#fff",
+    background: "#f4fafd",
   },
   title: {
     display: "block",
@@ -24,10 +24,23 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    margin: "50px 10px 30px",
+    [theme.breakpoints.down("xs")]: {
+      justifyContent: "center",
+      display: "flex",
+      flexWrap: "wrap",
+    },
   },
   group: {
-    margin: "0 10px",
-    width: "150px",
+    margin: "0 20px",
+    width: 150,
+    [theme.breakpoints.down("md")]: {
+      width: 300,
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: 70,
+      margin: "20px",
+    },
   },
   icon: {
     fontSize: 48,
@@ -40,13 +53,21 @@ const useStyles = makeStyles(theme => ({
     fontSize: 26,
     textAlign: "center",
     width: "100%",
+    fontWeight: 300,
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 16,
+    },
+    
   },
   btn: {
     position: "relative",
     left: "50%",
     transform: "translateX(-50%)",
-    margin: "40px 0 0"
-  }
+    margin: "40px 0 0",
+    [theme.breakpoints.down("xs")]: {
+      margin: "20px 0",
+    },
+  },
 }));
 
 const pentalogy = () => {
@@ -76,7 +97,9 @@ const pentalogy = () => {
           <p className={classes.text}>大腦發育</p>
         </div>
       </div>
-      <Button className={classes.btn} size="large" variant="outlined">立刻預約諮詢</Button>
+      <Button className={classes.btn} size="large" variant="outlined">
+        立刻預約諮詢
+      </Button>
     </section>
   );
 };

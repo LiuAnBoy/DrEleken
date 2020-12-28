@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef, createRef } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { graphql, useStaticQuery, Link } from "gatsby";
@@ -68,6 +68,9 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       color: "#00b3b3",
     },
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1vw",
+    },
   },
   reservationBtn: {
     fontFamily: "Roboto, sans-serif",
@@ -81,6 +84,12 @@ const useStyles = makeStyles(theme => ({
     margin: 0,
     "&:hover": {
       backgroundColor: "#00b3b3",
+    },
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1vw",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.2vw",
     },
   },
   sideBarBtn: {
@@ -104,6 +113,34 @@ export const Header = props => {
     setOpen(!open);
   };
 
+  const handleClick = event => {
+    const validate = () => {
+      if (event.target.id === "about-us") {
+        return "#About-Us";
+      }
+      if (event.target.id === "child-face-control") {
+        return "#Child-Face-Control";
+      }
+      if (event.target.id === "our-group") {
+        return "#Our-Group";
+      }
+      if (event.target.id === "assessment") {
+        return "#Assessment-List";
+      }
+      if (event.target.id === "contact-us") {
+        return "#Contact-Us";
+      }
+    };
+
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      validate()
+    );
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   return (
     <div id="back-to-top-anchor" className={classes.root}>
       <AppBar position="fixed" className={classes.appbar} color="inherit">
@@ -115,19 +152,29 @@ export const Header = props => {
             />
           </Link>
           <div className={classes.btnGroup}>
-            <div color="inherit" className={classes.btn}>
+            <div
+              color="inherit"
+              className={classes.btn}
+              onClick={handleClick}
+              id="about-us"
+            >
               關於肯恩象醫生
             </div>
-            <div color="inherit" className={classes.btn}>
+            <div
+              color="inherit"
+              className={classes.btn}
+              id="child-face-control"
+              onClick={handleClick}
+            >
               兒童顏值管理
             </div>
-            <div color="inherit" className={classes.btn}>
+            <div color="inherit" className={classes.btn} id="our-group" onClick={handleClick}>
               我們的團隊
             </div>
-            <div color="inherit" className={classes.btn}>
+            <div color="inherit" className={classes.btn} id="assessment" onClick={handleClick}>
               自主檢測
             </div>
-            <div color="inherit" className={classes.reservationBtn}>
+            <div color="inherit" className={classes.reservationBtn} id="contact-us" onClick={handleClick}>
               立即預約
             </div>
           </div>

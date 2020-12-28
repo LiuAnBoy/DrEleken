@@ -15,28 +15,73 @@ const useStyles = makeStyles(theme => ({
   card: {
     display: "flex",
     flexDirection: "row",
-    transform: "scale(1.3)",
-    // boxShadow: "0 3px 10px #c2c2c2",
-    width: 540,
-    height: 300,
     position: "relative",
-    left: "-30%",
     zIndex: 9999,
     transition: theme.transitions.create("transform", { duration: ".4s" }),
+    [theme.breakpoints.down("xl")]: {
+      width: 600,
+      height: 350,
+      transform: "scale(1.2)",
+      left: "-5%"
+    },
+    [theme.breakpoints.down("lg")]: {
+      width: 600,
+      height: 300,
+    },
+    [theme.breakpoints.down("md")]: {
+      transform: "scale(1.2)",
+      left: "-25px",
+      width: 600,
+      height: 260,
+    },
+    [theme.breakpoints.down("sm")]: {
+      transform: "scale(1.2)",
+      left: "20px",
+      // left: "10px",
+      // width: 343,
+      // height: 230,
+    },
     [theme.breakpoints.down("xs")]: {
       transform: "scale(1)",
+      width: 343,
+      height: 230,
+      left: "102px"
     },
   },
   initCard: {
     display: "flex",
     flexDirection: "row",
     // boxShadow: "0 3px 10px #c2c2c2",
-    width: 450,
-    height: 250,
+    // width: 450,
+    // height: 250,
+    // left: "-15%",
     position: "relative",
-    left: "-15%",
+    zIndex: 9998,
     transition: theme.transitions.create("transform", { duration: ".4s" }),
     fontSize: 13,
+    [theme.breakpoints.down("xl")]: {
+      width: 600,
+      height: 350,
+      // left: "-68px",
+    },
+    [theme.breakpoints.down("lg")]: {
+      width: 600,
+      height: 300,
+      // left: "-10%",
+    },
+    [theme.breakpoints.down("md")]: {
+      // left: "30px",
+      // width: "100%",
+      height: 260,
+    },
+    [theme.breakpoints.down("sm")]: {
+      // left: "-30px",
+      // width: 430,
+      // height: 260,
+    },
+    [theme.breakpoints.down("xs")]: {
+      transform: "scale(1)",
+    },
   },
   cardMedia: {
     zIndex: 0,
@@ -47,14 +92,45 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     top: "50%",
     transform: "translateY(-50%)",
+    [theme.breakpoints.up("xl")]: {
+      margin: "0 10px 0 30px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: 90,
+    },
   },
   name: {
     margin: "10px 0",
     fontSize: 20,
+    [theme.breakpoints.up("xl")]: {
+      fontSize: 30,
+    },
+    [theme.breakpoints.down("lg")]: {
+      margin: "0px 0 -10px",
+      fontSize: 20,
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "0px 0 -10px",
+      fontSize: 20,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 20,
+      margin: "0px 0",
+    },
   },
   content: {
     // fontSize: 16,
     fontWeight: 300,
+    [theme.breakpoints.down("xl")]: {
+      fontSize: 16,
+    },
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 15,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 13,
+      margin: "0px 0",
+    },
   },
 }));
 
@@ -95,14 +171,13 @@ const introDoc = () => {
   const [cIdx, setCidx] = useState(1);
   const [clientWidth, setClientWidth] = useState();
 
-  useEffect(() => setClientWidth(document.body.clientWidth > 414));
+  useEffect(() => setClientWidth(document.body.clientWidth <= 768));
+  console.log(clientWidth)
   const settings = {
-    // variableWidth: true,
-    className: "center",
+    variableWidth: true,
     centerMode: true,
     infinite: true,
-    centerPadding: 0,
-    slidesToShow: clientWidth ? 3 : 1,
+    slidesToShow: clientWidth ? 1 : 3,
     speed: 500,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -123,12 +198,18 @@ const introDoc = () => {
           <CardContent>
             <p className={classes.name}>王世忠 醫師</p>
             <h4 className={classes.content}>
-              資歷：<br />
-              前台中市牙醫師公會理事<br />
-              中華民國植牙安全學會 副秘書長<br />
-              中華民國植牙安全學會 專科醫師<br />
-              中國醫藥大學 牙科部醫師<br />
-              前台中榮總醫師<br />
+              資歷：
+              <br />
+              前台中市牙醫師公會理事
+              <br />
+              中華民國植牙安全學會 副秘書長
+              <br />
+              中華民國植牙安全學會 專科醫師
+              <br />
+              中國醫藥大學 牙科部醫師
+              <br />
+              前台中榮總醫師
+              <br />
               前台中市模範醫師
             </h4>
           </CardContent>
@@ -146,10 +227,14 @@ const introDoc = () => {
             <p className={classes.name}>蔡婷如 醫師</p>
             <h4 className={classes.content}>
               資歷： <br />
-              前中山醫學大學附設醫院 牙科部醫師<br />
-              前衛生福利部豐原醫院 牙科部醫師<br />
-              台中榮總口腔外科訓練醫師<br />
-              日本齒科大學口腔醫學院部研修<br />
+              前中山醫學大學附設醫院 牙科部醫師
+              <br />
+              前衛生福利部豐原醫院 牙科部醫師
+              <br />
+              台中榮總口腔外科訓練醫師
+              <br />
+              日本齒科大學口腔醫學院部研修
+              <br />
               中華民國臨床植牙學會 會員醫師
             </h4>
           </CardContent>
@@ -167,11 +252,16 @@ const introDoc = () => {
             <p className={classes.name}>葉俊佑 醫師</p>
             <h4 className={classes.content}>
               資歷： <br />
-              賓州大學(UPenn)進階美學暨數位植牙認證醫師<br />
-              西雅圖華盛頓大學(uw)牙醫學院進修<br />
-              日本齒科大學生命齒學部研修<br />
-              台灣牙醫顯微美學治療學會 會員醫師<br />
-              家庭牙醫學科專科醫師<br />
+              賓州大學(UPenn)進階美學暨數位植牙認證醫師
+              <br />
+              西雅圖華盛頓大學(uw)牙醫學院進修
+              <br />
+              日本齒科大學生命齒學部研修
+              <br />
+              台灣牙醫顯微美學治療學會 會員醫師
+              <br />
+              家庭牙醫學科專科醫師
+              <br />
               中山醫學大學附設醫院醫師
             </h4>
           </CardContent>
@@ -186,16 +276,23 @@ const introDoc = () => {
             />
           </CardMedia>
           <CardContent>
-          <p className={classes.name}>李雨柔 醫師</p>
+            <p className={classes.name}>李雨柔 醫師</p>
             <h4 className={classes.content}>
               資歷： <br />
-              NYU美國紐約大學植牙訓練<br />
-              台灣-南加州牙周植牙研究中心認證醫師<br />
-              台灣植牙醫學會 會員醫師<br />
-              TissueArt植牙美學認證醫師<br />
-              台灣美容植牙醫學會會員醫師<br />
-              前台中榮民總醫院牙科部醫師<br />
-              前中山醫學大學附設醫院醫師<br />
+              NYU美國紐約大學植牙訓練
+              <br />
+              台灣-南加州牙周植牙研究中心認證醫師
+              <br />
+              台灣植牙醫學會 會員醫師
+              <br />
+              TissueArt植牙美學認證醫師
+              <br />
+              台灣美容植牙醫學會會員醫師
+              <br />
+              前台中榮民總醫院牙科部醫師
+              <br />
+              前中山醫學大學附設醫院醫師
+              <br />
               中山醫學大學牙醫學士
             </h4>
           </CardContent>
