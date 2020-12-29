@@ -182,8 +182,6 @@ const introDoc = () => {
     },
   };
 
-  console.log(document.body.clientWidth)
-
   return (
     <Slider {...settings}>
       {data.doctors.nodes.map((doctor, i) => {
