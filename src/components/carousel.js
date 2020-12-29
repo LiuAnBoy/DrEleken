@@ -83,35 +83,32 @@ const useStyles = makeStyles(theme => ({
     zIndex: 0,
   },
   img: {
+    margin: "0 40px 0 50px",
     width: 150,
-    margin: "0 0px 0 20px",
     position: "relative",
     top: "50%",
     transform: "translateY(-50%)",
     [theme.breakpoints.up("xl")]: {
-      margin: "0 10px 0 30px",
     },
     [theme.breakpoints.down("xs")]: {
       width: 90,
+      margin: "0 -10px 0 0px",
     },
   },
   name: {
-    margin: "10px 0",
     fontSize: 20,
     [theme.breakpoints.up("xl")]: {
       fontSize: 30,
     },
     [theme.breakpoints.down("lg")]: {
-      margin: "0px 0 -10px",
       fontSize: 20,
     },
     [theme.breakpoints.down("sm")]: {
-      margin: "0px 0 -10px",
       fontSize: 20,
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 20,
-      margin: "0px 0",
+      margin: "0 0",
     },
   },
   content: {
@@ -124,7 +121,6 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 13,
-      margin: "0px 0",
     },
   },
 }));
@@ -185,6 +181,8 @@ const introDoc = () => {
       setCurrentIdx(currentIndex);
     },
   };
+
+  console.log(document.body.clientWidth)
 
   return (
     <Slider {...settings}>
