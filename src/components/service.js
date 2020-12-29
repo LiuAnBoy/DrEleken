@@ -70,7 +70,7 @@ const service = () => {
         </CardMedia>
         <CardContent>
           <div className={classes.font}>大甲精品牙醫</div>
-          <Typography variant="h6" className={classes.typo}>
+          <Typography variant="h6" className={classes.typo} >
             診所地址 : 437台中市大甲區中華街85號
             <br />
             預約電話 : 04-268-66662

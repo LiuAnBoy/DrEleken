@@ -52,7 +52,6 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
     },
   },
-  // TODO Button style
   btn: {
     width: 100,
     boxShadow: "none",
@@ -60,8 +59,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: "20px",
     left: "50%",
     transform: "translateX(-50%)",
-    background: "#5bd7d7",
+    background: "#00cccc",
     color: "#fff",
+    "&:hover": {
+      backgroundColor: "#00b3b3",
+    },
   },
 }));
 

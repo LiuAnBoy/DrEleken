@@ -9,6 +9,7 @@ import ScrollButton from "./scrollbutton";
 import { makeStyles } from "@material-ui/core/styles";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 
+import NavLink from "../constants/navlink";
 import Sidebar from "./sidebar";
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +21,9 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    zIndex: "-1",
+    // width: "100vw",
+    // maxWidth: "100%",
+    // zIndex: "-1",
   },
   show: {
     display: "none",
@@ -38,8 +41,9 @@ const useStyles = makeStyles(theme => ({
       justifyContent: "space-around",
     },
     [theme.breakpoints.down("xs")]: {
-      width: "100%",
+      width: "375px",
       justifyContent: "center",
+      maxWidth: "100%",
     },
   },
   img: {
@@ -49,7 +53,7 @@ const useStyles = makeStyles(theme => ({
       position: "default",
     },
   },
-  btnGroup: {
+  test: {
     width: "60%",
     display: "flex",
     flexDirection: "row",
@@ -57,39 +61,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     [theme.breakpoints.down("xs")]: {
       display: "none",
-    },
-  },
-  btn: {
-    fontFamily: "Roboto, sans-serif",
-    color: "#1a1a1a",
-    fontSize: "0.9vw",
-    fontWeight: 400,
-    cursor: "pointer",
-    "&:hover": {
-      color: "#00b3b3",
-    },
-    [theme.breakpoints.down("lg")]: {
-      fontSize: "1vw",
-    },
-  },
-  reservationBtn: {
-    fontFamily: "Roboto, sans-serif",
-    color: "#fff",
-    fontSize: "0.9vw",
-    fontWeight: 400,
-    backgroundColor: "#00cccc",
-    borderRadius: "6px",
-    cursor: "pointer",
-    padding: "10px 20px",
-    margin: 0,
-    "&:hover": {
-      backgroundColor: "#00b3b3",
-    },
-    [theme.breakpoints.down("lg")]: {
-      fontSize: "1vw",
-    },
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1.2vw",
     },
   },
   sideBarBtn: {
@@ -109,41 +80,20 @@ export const Header = props => {
   const data = useStaticQuery(query);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [navLinkDisplay, setNavLinkDisplay] = useState(true);
   const handleOpen = () => {
     setOpen(!open);
   };
 
-  const handleClick = event => {
-    const validate = () => {
-      if (event.target.id === "about-us") {
-        return "#About-Us";
-      }
-      if (event.target.id === "child-face-control") {
-        return "#Child-Face-Control";
-      }
-      if (event.target.id === "our-group") {
-        return "#Our-Group";
-      }
-      if (event.target.id === "assessment") {
-        return "#Assessment-List";
-      }
-      if (event.target.id === "contact-us") {
-        return "#Contact-Us";
-      }
-    };
-
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      validate()
-    );
-
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+  useEffect(() => {
+    if (document.body.clientWidth <= 414) {
+      setNavLinkDisplay(false);
     }
-  };
+  });
 
   return (
     <div id="back-to-top-anchor" className={classes.root}>
-      <AppBar position="fixed" className={classes.appbar} color="inherit">
+      <AppBar className={classes.appBar} color="inherit">
         <Toolbar className={classes.toolBar}>
           <Link to="/">
             <Img
@@ -151,33 +101,7 @@ export const Header = props => {
               className={classes.img}
             />
           </Link>
-          <div className={classes.btnGroup}>
-            <div
-              color="inherit"
-              className={classes.btn}
-              onClick={handleClick}
-              id="about-us"
-            >
-              關於肯恩象醫生
-            </div>
-            <div
-              color="inherit"
-              className={classes.btn}
-              id="child-face-control"
-              onClick={handleClick}
-            >
-              兒童顏值管理
-            </div>
-            <div color="inherit" className={classes.btn} id="our-group" onClick={handleClick}>
-              我們的團隊
-            </div>
-            <div color="inherit" className={classes.btn} id="assessment" onClick={handleClick}>
-              自主檢測
-            </div>
-            <div color="inherit" className={classes.reservationBtn} id="contact-us" onClick={handleClick}>
-              立即預約
-            </div>
-          </div>
+          <NavLink Display={classes.test}/>
           <div className={classes.sideBarBtn} onClick={handleOpen}>
             <BookmarkIcon style={{ fontSize: "48px", color: "#00b3b3" }} />
           </div>

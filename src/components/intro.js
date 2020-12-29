@@ -60,12 +60,37 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleCard() {
+const Intro = () => {
   const classes = useStyles();
+
+  const handleClick = (e, index) => {
+    const validate = () => {
+      if (index === 0) {
+        return "Child-Face-Control";
+      }
+      if (index === 1) {
+        return "About-Us";
+      }
+      if (index === 2) {
+        return "Contact-Us";
+      }
+    };
+
+    // const anchor = document.querySelector(validate());
+    const anchor = document.getElementById(validate());
+    const headerOffset = 90;
+    const elementPosition = anchor.offsetTop;
+    console.log(elementPosition);
+    const offsetPosition = elementPosition - headerOffset;
+
+    if (anchor) {
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
 
   return (
     <section className={classes.root}>
-      {intro.map(i => {
+      {intro.map((i, index) => {
         const { id, icon, title, text, button } = i;
         return (
           <Card key={id} className={classes.card}>
@@ -75,7 +100,11 @@ export default function SimpleCard() {
               <Typography variant="h6" className={classes.typo}>
                 {text}
               </Typography>
-              <Button className={classes.btn} variant="outlined">
+              <Button
+                className={classes.btn}
+                variant="outlined"
+                onClick={e => handleClick(e, index)}
+              >
                 {button}
               </Button>
             </CardContent>
@@ -85,3 +114,5 @@ export default function SimpleCard() {
     </section>
   );
 }
+
+export default Intro;

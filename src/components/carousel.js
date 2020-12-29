@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
       width: 600,
       height: 350,
       transform: "scale(1.2)",
-      left: "-5%"
+      left: "-5%",
     },
     [theme.breakpoints.down("lg")]: {
       width: 600,
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
       transform: "scale(1)",
       width: 343,
       height: 230,
-      left: "102px"
+      left: "102px",
     },
   },
   initCard: {
@@ -62,16 +62,12 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xl")]: {
       width: 600,
       height: 350,
-      // left: "-68px",
     },
     [theme.breakpoints.down("lg")]: {
       width: 600,
       height: 300,
-      // left: "-10%",
     },
     [theme.breakpoints.down("md")]: {
-      // left: "30px",
-      // width: "100%",
       height: 260,
     },
     [theme.breakpoints.down("sm")]: {
@@ -119,7 +115,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   content: {
-    // fontSize: 16,
     fontWeight: 300,
     [theme.breakpoints.down("xl")]: {
       fontSize: 16,
@@ -168,11 +163,16 @@ const PrevArrow = props => {
 const introDoc = () => {
   const classes = useStyles();
   const data = useStaticQuery(query);
-  const [cIdx, setCidx] = useState(1);
+  const [currentIdx, setCurrentIdx] = useState(0);
   const [clientWidth, setClientWidth] = useState();
 
+  const onScale = index => {
+    if (currentIdx === index) {
+      return true;
+    } else return false;
+  };
+
   useEffect(() => setClientWidth(document.body.clientWidth <= 768));
-  console.log(clientWidth)
   const settings = {
     variableWidth: true,
     centerMode: true,
@@ -181,134 +181,55 @@ const introDoc = () => {
     speed: 500,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    beforeChange: (currentIndex, nextIndex) => {
-      setCidx(nextIndex + 1);
+    beforeChange: (oldIndex, currentIndex) => {
+      setCurrentIdx(currentIndex);
     },
   };
+
   return (
     <Slider {...settings}>
-      <div>
-        <Card className={cIdx === 1 ? classes.card : classes.initCard}>
-          <CardMedia className={classes.cardMedia}>
-            <Img
-              fluid={data.allFile.nodes[0].childImageSharp.fluid}
-              className={classes.img}
-            />
-          </CardMedia>
-          <CardContent>
-            <p className={classes.name}>王世忠 醫師</p>
-            <h4 className={classes.content}>
-              資歷：
-              <br />
-              前台中市牙醫師公會理事
-              <br />
-              中華民國植牙安全學會 副秘書長
-              <br />
-              中華民國植牙安全學會 專科醫師
-              <br />
-              中國醫藥大學 牙科部醫師
-              <br />
-              前台中榮總醫師
-              <br />
-              前台中市模範醫師
-            </h4>
-          </CardContent>
-        </Card>
-      </div>
-      <div>
-        <Card className={cIdx === 2 ? classes.card : classes.initCard}>
-          <CardMedia className={classes.cardMedia}>
-            <Img
-              fluid={data.allFile.nodes[2].childImageSharp.fluid}
-              className={classes.img}
-            />
-          </CardMedia>
-          <CardContent>
-            <p className={classes.name}>蔡婷如 醫師</p>
-            <h4 className={classes.content}>
-              資歷： <br />
-              前中山醫學大學附設醫院 牙科部醫師
-              <br />
-              前衛生福利部豐原醫院 牙科部醫師
-              <br />
-              台中榮總口腔外科訓練醫師
-              <br />
-              日本齒科大學口腔醫學院部研修
-              <br />
-              中華民國臨床植牙學會 會員醫師
-            </h4>
-          </CardContent>
-        </Card>
-      </div>
-      <div>
-        <Card className={cIdx === 3 ? classes.card : classes.initCard}>
-          <CardMedia className={classes.cardMedia}>
-            <Img
-              fluid={data.allFile.nodes[1].childImageSharp.fluid}
-              className={classes.img}
-            />
-          </CardMedia>
-          <CardContent>
-            <p className={classes.name}>葉俊佑 醫師</p>
-            <h4 className={classes.content}>
-              資歷： <br />
-              賓州大學(UPenn)進階美學暨數位植牙認證醫師
-              <br />
-              西雅圖華盛頓大學(uw)牙醫學院進修
-              <br />
-              日本齒科大學生命齒學部研修
-              <br />
-              台灣牙醫顯微美學治療學會 會員醫師
-              <br />
-              家庭牙醫學科專科醫師
-              <br />
-              中山醫學大學附設醫院醫師
-            </h4>
-          </CardContent>
-        </Card>
-      </div>
-      <div>
-        <Card className={cIdx === 4 ? classes.card : classes.initCard}>
-          <CardMedia className={classes.cardMedia}>
-            <Img
-              fluid={data.allFile.nodes[3].childImageSharp.fluid}
-              className={classes.img}
-            />
-          </CardMedia>
-          <CardContent>
-            <p className={classes.name}>李雨柔 醫師</p>
-            <h4 className={classes.content}>
-              資歷： <br />
-              NYU美國紐約大學植牙訓練
-              <br />
-              台灣-南加州牙周植牙研究中心認證醫師
-              <br />
-              台灣植牙醫學會 會員醫師
-              <br />
-              TissueArt植牙美學認證醫師
-              <br />
-              台灣美容植牙醫學會會員醫師
-              <br />
-              前台中榮民總醫院牙科部醫師
-              <br />
-              前中山醫學大學附設醫院醫師
-              <br />
-              中山醫學大學牙醫學士
-            </h4>
-          </CardContent>
-        </Card>
-      </div>
+      {data.doctors.nodes.map((doctor, i) => {
+        const { name, avatar, experience, id } = doctor;
+        return (
+          <div key={id}>
+            <Card className={onScale(i) ? classes.card : classes.initCard}>
+              <CardMedia className={classes.cardMedia}>
+                <Img fluid={avatar.fluid} className={classes.img} />
+              </CardMedia>
+              <CardContent>
+                <p className={classes.name}>{name} 醫師</p>
+                <h4 className={classes.content}>
+                  資歷：
+                  {experience.map((exp, index) => {
+                    return <div key={index}>{exp}</div>;
+                  })}
+                </h4>
+              </CardContent>
+            </Card>
+          </div>
+        );
+      })}
     </Slider>
   );
 };
-
+// ...GatsbyContentfulFluid
 export const query = graphql`
   {
-    allFile(filter: { relativePath: { regex: "/^doc[1-9].png/" } }) {
+    doctors: allContentfulDoctor(sort: { fields: createdAt, order: ASC }) {
       nodes {
-        childImageSharp {
+        id
+        name
+        experience
+        avatar {
           fluid {
-            ...GatsbyImageSharpFluid
+            src
+            aspectRatio
+            base64
+            sizes
+            srcSet
+            srcSetWebp
+            srcWebp
+            tracedSVG
           }
         }
       }

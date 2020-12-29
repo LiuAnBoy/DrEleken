@@ -70,8 +70,21 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const pentalogy = () => {
+const Pentalogy = () => {
   const classes = useStyles();
+
+  const handleClick = () => {
+
+    const anchor = document.getElementById("Contact-Us");
+    const headerOffset = 90;
+    const elementPosition = anchor.offsetTop;
+    console.log(elementPosition);
+    const offsetPosition = elementPosition - headerOffset;
+
+    if (anchor) {
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
   return (
     <section className={classes.root}>
       <Title title="顏值管理五部曲" />
@@ -97,11 +110,11 @@ const pentalogy = () => {
           <p className={classes.text}>大腦發育</p>
         </div>
       </div>
-      <Button className={classes.btn} size="large" variant="outlined">
+      <Button className={classes.btn} size="large" variant="outlined" onClick={handleClick}>
         立刻預約諮詢
       </Button>
     </section>
   );
 };
 
-export default pentalogy;
+export default Pentalogy;

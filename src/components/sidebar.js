@@ -5,6 +5,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ClearIcon from "@material-ui/icons/Clear";
+import NavLink from "../constants/navlink";
 
 const useStyles = makeStyles({
   list: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
     fontSize: "38px",
   },
   listicon: {
-    margin: "5px 0px 0 155px"
+    margin: "5px 0px 0 155px",
   },
   text: {
     textAlign: "center",
@@ -43,41 +44,19 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer({ handleOpen, open }) {
+const Sidelink = ({ handleOpen, open }) => {
   const classes = useStyles();
-
-  const list = () => (
-    <div
-      className={classes.list}
-      role="presentation"
-      onClick={handleOpen}
-      onKeyDown={handleOpen}
-    >
-      <List>
-        {["關於肯恩象醫生", "兒童顏值管理", "我們的團隊", "自主檢測"].map(
-          (text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} className={classes.text} />
-            </ListItem>
-          )
-        )}
-      </List>
-      <List>
-        <ListItem button>
-          <ListItemText primary="立即預約" className={classes.reservationBtn} />
-        </ListItem>
-      </List>
-    </div>
-  );
 
   return (
     <Fragment>
       <Drawer anchor="right" open={open} onClose={handleOpen}>
         <div onClick={handleOpen} className={classes.listicon}>
-          <ClearIcon className={classes.icon}/>
+          <ClearIcon className={classes.icon} />
         </div>
-        {list("right")}
+        <NavLink onKeydown={handleOpen} onClick={handleOpen}/>
       </Drawer>
     </Fragment>
   );
-}
+};
+
+export default Sidelink;

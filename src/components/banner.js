@@ -99,6 +99,20 @@ const useStyles = makeStyles(theme => ({
 const Banner = () => {
   const data = useStaticQuery(query);
   const classes = useStyles();
+
+  const handleClick = () => {
+
+    const anchor = document.getElementById("Contact-Us");
+    const headerOffset = 90;
+    const elementPosition = anchor.offsetTop;
+    console.log(elementPosition);
+    const offsetPosition = elementPosition - headerOffset;
+
+    if (anchor) {
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
+  
   return (
     <BackgroundImage
       Tag="section"
@@ -110,7 +124,7 @@ const Banner = () => {
         <h1 className={classes.title}>兒童顏值管理專家</h1>
         <p className={classes.subtitle}>守護所有孩子的健康與自信</p>
       </div>
-      <Button variant="outlined" className={classes.button}>
+      <Button variant="outlined" className={classes.button} onClick={handleClick}>
         立即預約
       </Button>
     </BackgroundImage>

@@ -90,7 +90,20 @@ const useStyles = makeStyles(theme => ({
   radioGroup: {
     margin: "5px 10px",
     display: "block",
-    width: 290
+    width: 300
+  },
+  btn: {
+    width: 100,
+    boxShadow: "none",
+    position: "relative",
+    marginTop: "20px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    background: "#00cccc",
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: "#00b3b3",
+    },
   },
 }));
 
@@ -185,7 +198,7 @@ const contact = () => {
                 label={<Typo>11-12歲</Typo>}
               />
             </RadioGroup>
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" className={classes.btn}>
               送出
             </Button>
           </form>

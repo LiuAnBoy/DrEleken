@@ -9,6 +9,7 @@ const layout = ({ children }) => {
       <Header />
       <Sidebar />
       {children}
+      {/* TODO FIX footer's width */}
       <Footer />
     </div>
   );

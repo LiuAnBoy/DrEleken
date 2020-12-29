@@ -21,4 +21,5 @@ module.exports = {
     "no-trailing-spaces": 1,
     "no-unused-vars": "warn",
   },
+  ignorePatter: ["gatsby-config.js"],
 };

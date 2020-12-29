@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 /**
  * Configure your Gatsby site with this file.
  *
@@ -10,6 +14,7 @@ module.exports = {
     title: "De.Eleken",
     description:
       "針對每一個獨一無二的孩子，打造專屬的治療計畫。分析造成孩子發育不良的根本原因，制定方案，而不單只以口腔或是牙齒的情況去處理。",
+    img: "src/assets/img/favicon.png",
     author: "@CLA",
   },
   plugins: [
@@ -29,10 +34,17 @@ module.exports = {
       options: {
         fonts: [
           `Roboto\:300,400,700`,
-          `sans-serif\:300,400,700` // you can also specify font weights and styles
+          `sans-serif\:300,400,700`, // you can also specify font weights and styles
         ],
-        display: 'swap',
-      }
-    }
+        display: "swap",
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `2u6spopzyagl`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
   ],
-}
+};

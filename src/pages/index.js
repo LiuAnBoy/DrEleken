@@ -10,11 +10,13 @@ import QA from "../components/QA";
 import Service from "../components/service";
 import Assessment from "../components/assessment";
 import Contact from "../components/contact";
+import Helmet from "../components/helmet";
 import "../styles/index.css";
 
 export default function Home() {
   return (
     <Layout>
+      <Helmet />
       <Banner />
       <Intro />
       <AboutUs />
