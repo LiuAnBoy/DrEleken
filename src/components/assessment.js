@@ -107,7 +107,7 @@ const Typo = withStyles(theme => ({
   },
 }))(Typography);
 
-const assessment = () => {
+const assessment = ({ formData }) => {
   const [value, setValue] = useState({
     Q1: "",
     Q2: [],
@@ -115,11 +115,11 @@ const assessment = () => {
     Q4: [],
     Q5: [],
     Q6: [],
-    Q7: [],
-    Q8: [],
-    Q9: [],
-    Q10: [],
-    Q11: [],
+    Q7: "",
+    Q8: "",
+    Q9: "",
+    Q10: "",
+    Q11: "",
   });
 
   const handleChange = event => {
@@ -150,7 +150,7 @@ const assessment = () => {
 
   const classes = useStyles();
   return (
-    <section className={classes.root} id="Assessment-List">
+    <div className={classes.root} id="Assessment-List">
       <Card className={classes.card}>
         <h1 className={classes.Title}>自評表</h1>
         <CardContent>
@@ -378,7 +378,7 @@ const assessment = () => {
           </Button>
         </CardContent>
       </Card>
-    </section>
+    </div>
   );
 };
 

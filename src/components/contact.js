@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,6 +8,7 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button, Typography } from "@material-ui/core";
+import { sendEmail } from "../constants/email";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -90,7 +91,7 @@ const useStyles = makeStyles(theme => ({
   radioGroup: {
     margin: "5px 10px",
     display: "block",
-    width: 300
+    width: 300,
   },
   btn: {
     width: 100,
@@ -105,6 +106,13 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#00b3b3",
     },
   },
+  successMsg: {
+    fontSize: 14,
+    display: "inline-block",
+    position: "relative",
+    left: "120px",
+    top: "10px",
+  },
 }));
 
 const RadioBox = withStyles({
@@ -115,7 +123,7 @@ const RadioBox = withStyles({
     },
   },
   checked: {},
-})(props => <Radio color="default" {...props} />);
+})(props => <Radio color="default" required {...props} />);
 
 const Typo = withStyles(theme => ({
   root: {
@@ -132,8 +140,55 @@ const Typo = withStyles(theme => ({
 
 const contact = () => {
   const classes = useStyles();
+  const [sendMsg, setSendMsg] = useState("送出");
+  const [btnDisable, setBtnDisable] = useState(false);
+  const [appointment, setAppointment] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    msg: "",
+    age: "",
+  });
+
+  const handleChange = e => {
+    const targetName = e.target.name;
+    setAppointment({
+      ...appointment,
+      [targetName]: e.target.value,
+    });
+  };
+
+  const NORMAL = "NORMAL";
+  const SEND_FAIL = "SEND_FAIL";
+  const SEND_SUCCESS = "SEND_SUCCESS";
+
+  const onButtonStatusChange = status => {
+    switch (status) {
+      case NORMAL:
+        setSendMsg("送出");
+        setBtnDisable(false);
+        break;
+      case SEND_SUCCESS:
+        setSendMsg("送出成功");
+        setBtnDisable(true);
+        break;
+      case SEND_FAIL:
+        setSendMsg("送出失敗");
+        setBtnDisable(true);
+        break;
+      default:
+        setSendMsg("送出");
+        setBtnDisable(false);
+    }
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    sendEmail({onButtonStatusChange, appointment})
+  };
+
   return (
-    <section className={classes.root} id="Contact-Us">
+    <div className={classes.root} id="Contact-Us">
       <div className={classes.content}>
         <h2 className={classes.title}>線上預約</h2>
         <p className={classes.p}>
@@ -151,36 +206,45 @@ const contact = () => {
               id="outlined-basic"
               label="姓名"
               variant="outlined"
+              name="name"
               className={classes.textboxSmall}
+              onChange={handleChange}
             />
             <TextField
               id="outlined-basic"
               label="電話"
               variant="outlined"
+              name="phone"
               className={classes.textboxSmall}
+              onChange={handleChange}
             />
             <TextField
               id="outlined-basic"
-              label="電話"
+              label="電子郵件"
               variant="outlined"
+              name="email"
               className={classes.textboxBig}
+              onChange={handleChange}
             />
             <TextField
               id="outlined-basic"
               label="留言訊息"
+              name="msg"
               variant="outlined"
               multiline
               rows={5}
               className={classes.textboxBig}
+              onChange={handleChange}
             />
             <FormLabel className={classes.qTitle}>
               請問您的孩子的年齡是：
             </FormLabel>
             <RadioGroup
-              aria-label="Q1"
-              name="Q1"
+              aria-label="age"
+              name="age"
               row
               className={classes.radioGroup}
+              onChange={handleChange}
             >
               <FormControlLabel
                 value="0-6歲"
@@ -198,13 +262,19 @@ const contact = () => {
                 label={<Typo>11-12歲</Typo>}
               />
             </RadioGroup>
-            <Button type="submit" variant="contained" className={classes.btn}>
-              送出
+            <Button
+              type="submit"
+              variant="contained"
+              className={classes.btn}
+              onClick={onSubmit}
+              disabled={btnDisable}
+            >
+              {sendMsg}
             </Button>
           </form>
         </CardContent>
       </Card>
-    </section>
+    </div>
   );
 };
 

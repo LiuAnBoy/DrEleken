@@ -8,6 +8,8 @@ require("dotenv").config({
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+
+
 module.exports = {
   /* Your site config here */
   siteMetadata: {
@@ -44,6 +46,12 @@ module.exports = {
       options: {
         spaceId: `2u6spopzyagl`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["EMAILJS_USER_ID", "EMAILJS_TEMPLATE_ID", "EMAILJS_SERVICE_ID"]
       },
     },
   ],

@@ -8,8 +8,7 @@ import Pentalogy from "../components/pentalogy";
 import IntroDoc from "../components/introDoc";
 import QA from "../components/QA";
 import Service from "../components/service";
-import Assessment from "../components/assessment";
-import Contact from "../components/contact";
+import ContactUs from '../components/contactus'
 import Helmet from "../components/helmet";
 import "../styles/index.css";
 
@@ -25,8 +24,7 @@ export default function Home() {
       <IntroDoc />
       <QA />
       <Service />
-      <Assessment />
-      <Contact />
+      <ContactUs />
     </Layout>
   );
 }
