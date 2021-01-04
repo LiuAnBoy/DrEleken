@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,7 +8,7 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button, Typography } from "@material-ui/core";
-import { sendEmail } from "../constants/email";
+import { sendEmail, NORMAL, SEND_FAIL, SEND_SUCCESS } from "../constants/email";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -138,7 +138,7 @@ const Typo = withStyles(theme => ({
   },
 }))(Typography);
 
-const contact = () => {
+const contact = ({ assessmentData }) => {
   const classes = useStyles();
   const [sendMsg, setSendMsg] = useState("送出");
   const [btnDisable, setBtnDisable] = useState(false);
@@ -149,6 +149,10 @@ const contact = () => {
     msg: "",
     age: "",
   });
+  const [assessment, setAssessment] = useState();
+  useEffect(() => {
+    setAssessment(assessmentData)
+  })
 
   const handleChange = e => {
     const targetName = e.target.name;
@@ -157,10 +161,6 @@ const contact = () => {
       [targetName]: e.target.value,
     });
   };
-
-  const NORMAL = "NORMAL";
-  const SEND_FAIL = "SEND_FAIL";
-  const SEND_SUCCESS = "SEND_SUCCESS";
 
   const onButtonStatusChange = status => {
     switch (status) {
@@ -184,7 +184,7 @@ const contact = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    sendEmail({onButtonStatusChange, appointment})
+    sendEmail({ onButtonStatusChange, appointment, assessment });
   };
 
   return (

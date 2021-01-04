@@ -107,7 +107,7 @@ const Typo = withStyles(theme => ({
   },
 }))(Typography);
 
-const assessment = ({ formData }) => {
+const assessment = ({ getData }) => {
   const [value, setValue] = useState({
     Q1: "",
     Q2: [],
@@ -145,7 +145,7 @@ const assessment = ({ formData }) => {
   };
 
   const onSubmit = () => {
-    console.log(value);
+    getData(value)
   };
 
   const classes = useStyles();
