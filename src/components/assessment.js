@@ -121,13 +121,17 @@ const assessment = ({ getData }) => {
     Q10: "",
     Q11: "",
   });
+  const [errorMsg, setErrorMsg] = useState("");
+  const [isFilled, checkIsFilled] = useState(false);
 
   const handleChange = event => {
-    const name = event.target.name;
-    setValue({
-      ...value,
-      [name]: event.target.value,
-    });
+    if (event.target.value) {
+      const name = event.target.name;
+      setValue({
+        ...value,
+        [name]: event.target.value,
+      });
+    }
   };
 
   const handleCheck = event => {
@@ -144,8 +148,21 @@ const assessment = ({ getData }) => {
     }
   };
 
-  const onSubmit = () => {
-    getData(value)
+  const scrollToContactUs = () => {
+    const anchor = document.getElementById("Contact-Us");
+    const headerOffset = 90;
+    const elementPosition = anchor.offsetTop;
+    const offsetPosition = elementPosition - headerOffset;
+
+    if (anchor) {
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
+
+  const onSubmit = event => {
+    event.preventDefault();
+    scrollToContactUs();
+    getData(value);
   };
 
   const classes = useStyles();
@@ -154,61 +171,65 @@ const assessment = ({ getData }) => {
       <Card className={classes.card}>
         <h1 className={classes.Title}>自評表</h1>
         <CardContent>
-          <FormControl component="fieldset">
-            <FormLabel className={classes.qTitle}>
-              請問您的孩子的年齡是：
-            </FormLabel>
-            <RadioGroup aria-label="Q1" name="Q1" onChange={handleChange} row>
-              <FormControlLabel
-                value="0-6歲"
-                control={<RadioBox />}
-                label={<Typo>6-10歲</Typo>}
-              />
-              <FormControlLabel
-                value="7-10歲"
-                control={<RadioBox />}
-                label={<Typo>7-10歲</Typo>}
-              />
-              <FormControlLabel
-                value="11-12歲"
-                control={<RadioBox />}
-                label={<Typo>11-12歲</Typo>}
-              />
-              <FormControlLabel
-                value="超過12歲"
-                control={<RadioBox />}
-                label={<Typo>超過12歲</Typo>}
-              />
-            </RadioGroup>
-            <FormLabel className={classes.qTitle}>
-              請問您的孩子有無下列習慣(多選)：
-            </FormLabel>
-            <FormGroup aria-label="Q2" name="Q2" onClick={handleCheck} row>
-              <FormControlLabel
-                control={<CheckBox value="喜歡用嘴巴呼吸" name="Q2" />}
-                label={<Typo>喜歡用嘴巴呼吸</Typo>}
-              />
-              <FormControlLabel
-                control={<CheckBox value="喜歡吐舌頭" name="Q2" />}
-                label={<Typo>喜歡吐舌頭</Typo>}
-              />
-              <FormControlLabel
-                control={<CheckBox value="喜歡吃手指" name="Q2" />}
-                label={<Typo>喜歡吃手指</Typo>}
-              />
-              <FormControlLabel
-                control={<CheckBox value="喜歡咬嘴唇" name="Q2" />}
-                label={<Typo>喜歡咬嘴唇</Typo>}
-              />
-              <FormControlLabel
-                control={<CheckBox value="喜歡趴睡" name="Q2" />}
-                label={<Typo>喜歡趴睡</Typo>}
-              />
-              <FormControlLabel
-                control={<CheckBox value="無" name="Q2" />}
-                label={<Typo>無</Typo>}
-              />
-            </FormGroup>
+          <form onSubmit={onSubmit}>
+            <FormControl component="fieldset">
+              <FormLabel className={classes.qTitle}>
+                請問您的孩子的年齡是：
+              </FormLabel>
+              <RadioGroup aria-label="Q1" name="Q1" onChange={handleChange} row>
+                <FormControlLabel
+                  value="0-6歲"
+                  control={<RadioBox />}
+                  label={<Typo>6-10歲</Typo>}
+                />
+                <FormControlLabel
+                  value="7-10歲"
+                  control={<RadioBox />}
+                  label={<Typo>7-10歲</Typo>}
+                />
+                <FormControlLabel
+                  value="11-12歲"
+                  control={<RadioBox />}
+                  label={<Typo>11-12歲</Typo>}
+                />
+                <FormControlLabel
+                  value="超過12歲"
+                  control={<RadioBox />}
+                  label={<Typo>超過12歲</Typo>}
+                />
+              </RadioGroup>
+            </FormControl>
+            <FormControl component="fieldset">
+              <FormLabel className={classes.qTitle}>
+                請問您的孩子有無下列習慣(多選)：
+              </FormLabel>
+              <FormGroup aria-label="Q2" name="Q2" onClick={handleCheck} row>
+                <FormControlLabel
+                  control={<CheckBox value="喜歡用嘴巴呼吸" name="Q2" />}
+                  label={<Typo>喜歡用嘴巴呼吸</Typo>}
+                />
+                <FormControlLabel
+                  control={<CheckBox value="喜歡吐舌頭" name="Q2" />}
+                  label={<Typo>喜歡吐舌頭</Typo>}
+                />
+                <FormControlLabel
+                  control={<CheckBox value="喜歡吃手指" name="Q2" />}
+                  label={<Typo>喜歡吃手指</Typo>}
+                />
+                <FormControlLabel
+                  control={<CheckBox value="喜歡咬嘴唇" name="Q2" />}
+                  label={<Typo>喜歡咬嘴唇</Typo>}
+                />
+                <FormControlLabel
+                  control={<CheckBox value="喜歡趴睡" name="Q2" />}
+                  label={<Typo>喜歡趴睡</Typo>}
+                />
+                <FormControlLabel
+                  control={<CheckBox value="無" name="Q2" />}
+                  label={<Typo>無</Typo>}
+                />
+              </FormGroup>
+            </FormControl>
             <FormLabel className={classes.qTitle}>
               請問您的孩子有無下列問題(多選)：
             </FormLabel>
@@ -368,14 +389,16 @@ const assessment = ({ getData }) => {
                 label={<Typo>否</Typo>}
               />
             </RadioGroup>
-          </FormControl>
-          <Button
-            className={classes.btn}
-            variant="contained"
-            onClick={onSubmit}
-          >
-            送出
-          </Button>
+
+            <Button
+              className={classes.btn}
+              variant="contained"
+              // onClick={onSubmit}
+              type="submit"
+            >
+              送出
+            </Button>
+          </form>
         </CardContent>
       </Card>
     </div>

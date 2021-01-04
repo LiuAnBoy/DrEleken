@@ -21,9 +21,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    // width: "100vw",
-    // maxWidth: "100%",
-    // zIndex: "-1",
   },
   show: {
     display: "none",

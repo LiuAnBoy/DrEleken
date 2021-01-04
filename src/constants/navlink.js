@@ -82,7 +82,6 @@ const NavLink = ({ Display, onKeydown, onClick }) => {
       }
     };
 
-    // const anchor = document.querySelector(validate());
     const anchor = document.getElementById(validate());
     const headerOffset = 90;
     const elementPosition = anchor.offsetTop
