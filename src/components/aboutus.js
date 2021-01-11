@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    background: "#e6e6e6",
+    background: "#d9d9d9",
     padding: "40px 0 50px",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   iconSection: {
     width: 400,
     height: 400,
-    background: "#e6e6e6",
+    background: "#d9d9d9",
     padding: "40px 0",
     [theme.breakpoints.down("sm")]: {
       width: 375,
@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     width: "100%",
-    background: "rgba(255,255,255,0.9)",
+    background: "rgba(255,255,255,1)",
     boxShadow: "none",
     borderRadius: 8,
     "&:hover": {

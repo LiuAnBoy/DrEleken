@@ -23,10 +23,10 @@ const useStyles = makeStyles(theme => ({
       outline: "none",
     },
     [theme.breakpoints.down("xl")]: {
-      width: "80%",
+      width: "70%",
     },
     [theme.breakpoints.down("lg")]: {
-      width: "88%",
+      width: "80%",
     },
     [theme.breakpoints.down("md")]: {
       width: "94%",

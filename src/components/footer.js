@@ -6,7 +6,8 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     maxWidth: "100%",
     padding: "50px 0 0",
-    background: "linear-gradient(30deg, #039696 20%, #039b9b 80%)",
+    // background: "linear-gradient(30deg, #039696 20%, #039b9b 80%)",
+    background: "#f4fafd",
   },
   container: {
     display: "flex",
@@ -30,21 +31,21 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontSize: 36,
-    fontWeight: 300,
-    color: "#fff",
+    fontWeight: 400,
+    color: "#40bdce",
   },
   subtitle: {
     fontSize: 18,
-    fontWeight: 300,
-    color: "#fff",
+    fontWeight: 400,
+    color: "#40bdce",
     [theme.breakpoints.down("xs")]: {
       fontSize: 16,
     },
   },
   content: {
     fontSize: 18,
-    fontWeight: 300,
-    color: "#fff",
+    fontWeight: 400,
+    color: "#40bdce",
   },
   iframe: {
     margin: "0 4.3vw",

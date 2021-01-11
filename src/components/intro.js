@@ -13,8 +13,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row",
     justifyContent: "center",
     padding: "20px 0",
-    background: "linear-gradient(30deg, #40bdce 20%, #84e1e1 80%)",
-    // background: "linear-gradient(30deg, #84e1e1 20%, #adebeb 80%)",
+    background: "#40bdce",
+    // background: "linear-gradient(30deg, #40bdce 20%, #84e1e1 80%)",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     height: 350,
     boxShadow: "none",
     margin: "20px 40px",
-    backgroundColor: "rgba(255,255,255,0.2)",
+    backgroundColor: "#f4fafd",
     [theme.breakpoints.down("sm")]: {
       margin: "20px 18px",
     },
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 72,
     textAlign: "center",
     margin: 0,
-    color: "rgba(255,255,255,0.9)",
+    color: "rgba(73, 192, 208,0.9)",
     height: "80px",
   },
   font: {
@@ -47,7 +47,8 @@ const useStyles = makeStyles(theme => ({
   },
   typo: {
     fontSize: 18,
-    margin: "0 0 20px",
+    width: "91.4%",
+    margin: "0 auto 20px",
     fontWeight: 300,
     height: 132,
     [theme.breakpoints.down("sm")]: {
@@ -114,6 +115,6 @@ const Intro = () => {
       })}
     </section>
   );
-}
+};
 
 export default Intro;

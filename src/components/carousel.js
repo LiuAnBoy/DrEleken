@@ -16,10 +16,9 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     zIndex: 9999,
     transition: theme.transitions.create("transform", { duration: ".4s" }),
-
     [theme.breakpoints.down("xl")]: {
-      width: 380,
-      height: 450,
+      width: 320,
+      height: 460,
       transform: "scale(1.2)",
     },
     [theme.breakpoints.down("md")]: {
@@ -29,6 +28,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       width: 300,
       height: 410,
+      boxShadow: 0,
     },
   },
   initCard: {
@@ -37,8 +37,8 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create("transform", { duration: ".4s" }),
     fontSize: 13,
     [theme.breakpoints.down("xl")]: {
-      width: 380,
-      height: 450,
+      width: 320,
+      height: 460,
     },
     [theme.breakpoints.down("md")]: {
       width: 300,
@@ -47,6 +47,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       width: 300,
       height: 410,
+      boxShadow: 0,
     },
   },
   cardMedia: {
@@ -74,18 +75,21 @@ const useStyles = makeStyles(theme => ({
       fontSize: 18,
     },
     [theme.breakpoints.down("sm")]: {
-      margin: "20px 0px 0"
+      margin: "20px 0px 0",
     },
   },
   content: {
-    width: "98%",
+    width: "92%",
     margin: "10px auto",
     fontWeight: 300,
     lineHeight: "25px",
+    fontSize: "30px",
+
     [theme.breakpoints.up("md")]: {
-      fontSize: 16,
+      fontSize: 14,
       margin: "0px auto",
       lineHeight: "24px",
+      width: "92%",
     },
     [theme.breakpoints.down("sm")]: {
       lineHeight: "20px",
@@ -93,7 +97,8 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: 12,
-      margin: "0 12px"
+      margin: "0 12px",
+      
     },
   },
 }));
