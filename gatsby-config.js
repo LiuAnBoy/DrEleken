@@ -13,7 +13,7 @@ require("dotenv").config({
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Dr.Eleken",
+    title: "肯恩象醫生 | Dr.Eleken",
     description:
       "針對每一個獨一無二的孩子，打造專屬的治療計畫。分析造成孩子發育不良的根本原因，制定方案，而不單只以口腔或是牙齒的情況去處理。",
     img: "src/assets/img/favicon.png",

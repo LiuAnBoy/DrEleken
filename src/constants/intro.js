@@ -8,7 +8,7 @@ export default [
     id: 1,
     icon: <InsertEmoticonIcon className="intro-icon" fontSize="inherit" />,
     title: "兒童顏值管理",
-    text: "每10個小朋友就有7.5個顎骨發育不良，這將影響孩子的一生。肯恩象醫生團隊堅持顏值管理五部曲，全方位守護in孩子健康。",
+    text: "每10個小朋友就有7.5個顎骨發育不良，這將影響孩子的一生。肯恩象醫生團隊堅持顏值管理五部曲，全方位守護孩子健康。",
     button: "顏值管理",
   },
   {
