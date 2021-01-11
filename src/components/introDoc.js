@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     padding: "50px 0",
     width: "100vw",
     maxWidth: "100%",
-    background: "linear-gradient(30deg, #039b9b 50%, #04afaf 60%)",
+    background: "#40bdce",
     // position: "relative",
     // top: "100px"
   },
@@ -22,11 +22,20 @@ const useStyles = makeStyles(theme => ({
     "&:active": {
       outline: "none",
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("xl")]: {
       width: "80%",
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("lg")]: {
+      width: "88%",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "94%",
+    },
+    [theme.breakpoints.down("sm")]: {
       width: "100%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "90%",
     },
   },
   title: {

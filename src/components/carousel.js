@@ -13,114 +13,87 @@ import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 
 const useStyles = makeStyles(theme => ({
   card: {
-    display: "flex",
-    flexDirection: "row",
     position: "relative",
     zIndex: 9999,
     transition: theme.transitions.create("transform", { duration: ".4s" }),
+
     [theme.breakpoints.down("xl")]: {
-      width: 600,
-      height: 350,
+      width: 380,
+      height: 450,
       transform: "scale(1.2)",
-      left: "-5%",
-    },
-    [theme.breakpoints.down("lg")]: {
-      width: 600,
-      height: 300,
     },
     [theme.breakpoints.down("md")]: {
-      transform: "scale(1.2)",
-      left: "-25px",
-      width: 600,
-      height: 260,
-    },
-    [theme.breakpoints.down("sm")]: {
-      transform: "scale(1.2)",
-      left: "20px",
-      // left: "10px",
-      // width: 343,
-      // height: 230,
+      width: 300,
+      height: 450,
     },
     [theme.breakpoints.down("xs")]: {
-      transform: "scale(1)",
-      width: 343,
-      height: 230,
-      left: "102px",
+      width: 300,
+      height: 410,
     },
   },
   initCard: {
-    display: "flex",
-    flexDirection: "row",
-    // boxShadow: "0 3px 10px #c2c2c2",
-    // width: 450,
-    // height: 250,
-    // left: "-15%",
     position: "relative",
     zIndex: 9998,
     transition: theme.transitions.create("transform", { duration: ".4s" }),
     fontSize: 13,
     [theme.breakpoints.down("xl")]: {
-      width: 600,
-      height: 350,
-    },
-    [theme.breakpoints.down("lg")]: {
-      width: 600,
-      height: 300,
+      width: 380,
+      height: 450,
     },
     [theme.breakpoints.down("md")]: {
-      height: 260,
-    },
-    [theme.breakpoints.down("sm")]: {
-      // left: "-30px",
-      // width: 430,
-      // height: 260,
+      width: 300,
+      height: 450,
     },
     [theme.breakpoints.down("xs")]: {
-      transform: "scale(1)",
+      width: 300,
+      height: 410,
     },
   },
   cardMedia: {
     zIndex: 0,
   },
   img: {
-    margin: "0 40px 0 50px",
-    width: 150,
-    position: "relative",
-    top: "50%",
-    transform: "translateY(-50%)",
-    [theme.breakpoints.up("xl")]: {
+    margin: "20px auto 0",
+    width: 180,
+    [theme.breakpoints.up("md")]: {
+      width: 120,
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: 120,
     },
     [theme.breakpoints.down("xs")]: {
       width: 90,
-      margin: "0 -10px 0 0px",
     },
   },
   name: {
     fontSize: 20,
-    [theme.breakpoints.up("xl")]: {
-      fontSize: 30,
-    },
-    [theme.breakpoints.down("lg")]: {
-      fontSize: 20,
+    margin: 0,
+    textAlign: "center",
+    margin: "20px 0px 0",
+    [theme.breakpoints.up("md")]: {
+      fontSize: 18,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 20,
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 20,
-      margin: "0 0",
+      margin: "20px 0px 0"
     },
   },
   content: {
+    width: "98%",
+    margin: "10px auto",
     fontWeight: 300,
-    [theme.breakpoints.down("xl")]: {
+    lineHeight: "25px",
+    [theme.breakpoints.up("md")]: {
       fontSize: 16,
+      margin: "0px auto",
+      lineHeight: "24px",
     },
-    [theme.breakpoints.down("lg")]: {
-      fontSize: 15,
+    [theme.breakpoints.down("sm")]: {
+      lineHeight: "20px",
+      fontSize: 14,
     },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 13,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 12,
+      margin: "0 12px"
     },
   },
 }));
@@ -191,9 +164,9 @@ const introDoc = () => {
             <Card className={onScale(i) ? classes.card : classes.initCard}>
               <CardMedia className={classes.cardMedia}>
                 <Img fluid={avatar.fluid} className={classes.img} />
+                <p className={classes.name}>{name} 醫師</p>
               </CardMedia>
               <CardContent>
-                <p className={classes.name}>{name} 醫師</p>
                 <h4 className={classes.content}>
                   資歷：
                   {experience.map((exp, index) => {

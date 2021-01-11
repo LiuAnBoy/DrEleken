@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row",
     justifyContent: "center",
     padding: "20px 0",
-    background: "linear-gradient(30deg, #84e1e1 20%, #adebeb 80%)",
+    background: "linear-gradient(30deg, #40bdce 20%, #84e1e1 80%)",
+    // background: "linear-gradient(30deg, #84e1e1 20%, #adebeb 80%)",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },

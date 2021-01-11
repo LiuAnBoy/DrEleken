@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   group: {
-    margin: "0 20px",
+    margin: "0 60px",
     width: 150,
     [theme.breakpoints.down("md")]: {
       width: 300,
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   icon: {
-    fontSize: 48,
+    fontSize: 72,
     textAlign: "center",
     width: "100%",
     color: "",
