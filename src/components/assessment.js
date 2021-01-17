@@ -17,7 +17,7 @@ import { Button, Typography } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "20px 0",
-    background: "#acecec",
+    background: "#f4fafd",
   },
   card: {
     width: 800,

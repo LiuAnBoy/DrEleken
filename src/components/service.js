@@ -12,7 +12,7 @@ import Title from "./title";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "50px 0 40px",
-    background: "#eafafa",
+    background: "#f2f2f2",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },

@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     zIndex: 0,
   },
   img: {
-    margin: "20px auto 0",
+    margin: "30px auto 0",
     width: 180,
     [theme.breakpoints.up("md")]: {
       width: 120,
@@ -84,7 +84,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 300,
     lineHeight: "25px",
     fontSize: "30px",
-
     [theme.breakpoints.up("md")]: {
       fontSize: 14,
       margin: "0px auto",
