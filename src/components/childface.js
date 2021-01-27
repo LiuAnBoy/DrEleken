@@ -14,46 +14,43 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row-reverse",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "stretch",
     background: "#f4fafd",
-    padding: "50px 0 40px",
+    padding: "60px 0",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
+      padding: "30px 0",
+      alignItems: "center",
     },
   },
   img: {
     width: 400,
-    height: 400,
     [theme.breakpoints.down("md")]: {
-      width: 300,
-      height: 300,
+      width: "30%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: 250,
-      height: 250,
+      width: "30%",
     },
     [theme.breakpoints.down("xs")]: {
-      width: 320,
-      height: 320,
+      width: "91.4vw",
+      height: "100%",
     },
   },
 
   card: {
-    height: 400,
     width: 780,
     boxShadow: "none",
     padding: "0 10px",
     [theme.breakpoints.down("md")]: {
-      width: 580,
-      height: 300,
+      width: "60%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: 400,
-      height: 250,
+      width: "60%",
     },
     [theme.breakpoints.down("xs")]: {
-      width: 300,
-      height: 300,
+      width: "91.4vw",
+      height: "53vw",
+      padding: "0"
     },
   },
   icon: {
@@ -63,12 +60,8 @@ const useStyles = makeStyles(theme => ({
     display: "block",
     margin: "0 0 15px",
     [theme.breakpoints.down("md")]: {
-      fontSize: 40,
-      margin: "0 0 12.5px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: 32,
-      margin: "0 0 10px",
+      fontSize: 30,
+      margin: "0",
     },
   },
   title: {
@@ -77,29 +70,29 @@ const useStyles = makeStyles(theme => ({
     fontStyle: "italic",
     display: "inline-block",
     [theme.breakpoints.down("md")]: {
-      fontSize: 48,
+      fontSize: "4.6vw",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 36,
+      fontSize: "3vw",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 40,
+      fontSize: "7vw",
     },
   },
   content: {
     lineHeight: "40px",
     fontWeight: 400,
     [theme.breakpoints.down("md")]: {
-      fontSize: 16,
-      lineHeight: "24px",
+      fontSize: "2vw",
+      lineHeight: "3.2vw",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 12,
-      lineHeight: "18px",
+      fontSize: "1.4vw",
+      lineHeight: "3.2vw",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 14,
-      lineHeight: "24px",
+      fontSize: "3.6vw",
+      lineHeight: "5.2vw",
     },
   },
 }));
@@ -111,18 +104,16 @@ const childface = () => {
   return (
     <section className={classes.root} id="Child-Face-Control">
       <Img fluid={data.file.childImageSharp.fluid} className={classes.img} />
-      <div>
-        <Card className={classes.card}>
-          <CardContent>
-            <FormatQuoteIcon className={classes.icon} />
-            <Typography variant="h6" className={classes.content}>
-              <p className={classes.title}>你知道嗎？</p>
-              每10個小朋友就有7.5個顎骨發育不良。許多家長認為孩子會換牙，不需要去注意牙齒問題，進而忽略了孩子顎骨的發育問題。
-              。7歲~10歲的孩童處於成長發育階段，是治療的黃金期。肯恩象醫生團隊堅持顏面管理一定要營養、睡眠、矯正、生長發育、大腦發育5大方面同時進行，因為它們是息息相關不可分割的關聯。
-            </Typography>
-          </CardContent>
-        </Card>
-      </div>
+      <Card className={classes.card}>
+        <CardContent>
+          <FormatQuoteIcon className={classes.icon} />
+          <Typography variant="h6" className={classes.content}>
+            <p className={classes.title}>你知道嗎？</p>
+            每10個小朋友就有7.5個顎骨發育不良。許多家長認為孩子會換牙，不需要去注意牙齒問題，進而忽略了孩子顎骨的發育問題。
+            。7歲~10歲的孩童處於成長發育階段，是治療的黃金期。肯恩象醫生團隊堅持顏面管理一定要營養、睡眠、矯正、生長發育、大腦發育5大方面同時進行，因為它們是息息相關不可分割的關聯。
+          </Typography>
+        </CardContent>
+      </Card>
     </section>
   );
 };

@@ -15,25 +15,19 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
     background: "#d9d9d9",
-    padding: "40px 0 50px",
-    [theme.breakpoints.down("xs")]: {
+    padding: "50px 0",
+    [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
+      padding: "20px 0",
     },
   },
   iconSection: {
     width: 400,
-    height: 400,
     background: "#d9d9d9",
-    padding: "40px 0",
-    [theme.breakpoints.down("sm")]: {
-      width: 375,
-    },
-    [theme.breakpoints.down("xs")]: {
-      width: 375,
-      height: 375,
-      padding: 0,
-      margin: "0 auto",
+    [theme.breakpoints.down("md")]: {
+      width: "30%",
     },
   },
   cardSection: {
@@ -41,19 +35,12 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
-    [theme.breakpoints.down("lg")]: {
-      width: 800,
-    },
     [theme.breakpoints.down("md")]: {
-      width: 550,
+      width: "60%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: 300,
-    },
-    [theme.breakpoints.down("xs")]: {
-      width: 343,
+      width: "91.4vw",
       margin: "0 auto",
-      display: "block",
     },
   },
   card: {
@@ -61,44 +48,23 @@ const useStyles = makeStyles(theme => ({
     background: "rgba(255,255,255,1)",
     boxShadow: "none",
     borderRadius: 8,
+    margin: "10px 0",
     "&:hover": {
       boxShadow: "0px 2px 10px -1px rgba(0,0,0,0.2)",
-    },
-    [theme.breakpoints.down("xs")]: {
-      margin: "20px 0",
-      display: "block",
     },
   },
   title: {
     fontSize: 24,
     margin: "0 0 6px",
-    [theme.breakpoints.down("lg")]: {
-      fontSize: "1.6vw",
-    },
     [theme.breakpoints.down("md")]: {
-      fontSize: "2.8vw",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "2.5vw",
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "6vw",
+      fontSize: "2vw",
     },
   },
   typo: {
     fontSize: 18,
     fontWeight: 300,
-    [theme.breakpoints.down("lg")]: {
-      fontSize: "1.1vw",
-    },
     [theme.breakpoints.down("md")]: {
-      fontSize: "1.2vw",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1vw",
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "4vw",
+      fontSize: "1.6vw",
     },
   },
 }));

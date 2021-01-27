@@ -4,11 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   root: {
     fontSize: 48,
-    margin: "0 0 20px",
+    margin: "0",
     display: "block",
     textAlign: "center",
     fontWeight: 300,
     lineHeight: "48px",
+    fontFamily: "Roboto",
     [theme.breakpoints.down("xs")]: {
       fontSize: 36,
     },

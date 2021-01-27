@@ -10,19 +10,25 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     maxWidth: "100%",
     background: "#f2f2f2",
-    padding: "50px 0 50px"
+    padding: "50px 0",
+    [theme.breakpoints.down("xs")]: {
+      padding: "20px 0",
+    },
   },
   container: {
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
     width: "100%",
-    margin: "50px auto 0",
+    margin: "80px auto",
     [theme.breakpoints.down("lg")]: {
       width: "100%",
     },
     [theme.breakpoints.down("md")]: {
       width: "100%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: "20px auto",
     },
   },
   img: {
@@ -33,6 +39,9 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("md")]: {
       width: 300,
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "91.4vw",
     },
   },
 }));

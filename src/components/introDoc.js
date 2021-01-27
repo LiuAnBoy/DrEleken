@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import BackgroundImage from "gatsby-background-image";
 import { graphql, useStaticQuery } from "gatsby";
 import Title from "./title";
 
 import Carousel from "./carousel";
+import DocCard from "./IntroDoc-card"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,30 +12,16 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     maxWidth: "100%",
     background: "#40bdce",
-    // position: "relative",
-    // top: "100px"
   },
-  slide: {
-    margin: "0 auto",
-    width: "80%",
+  content: {
+    margin: "80px auto",
+    width: "100%",
     outline: "none",
     "&:active": {
       outline: "none",
     },
-    [theme.breakpoints.down("xl")]: {
-      width: "70%",
-    },
-    [theme.breakpoints.down("lg")]: {
-      width: "80%",
-    },
-    [theme.breakpoints.down("md")]: {
-      width: "94%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-    },
     [theme.breakpoints.down("xs")]: {
-      width: "90%",
+      margin: "10vw auto",
     },
   },
   title: {
@@ -45,30 +31,17 @@ const useStyles = makeStyles(theme => ({
 
 const introDoc = () => {
   const classes = useStyles();
-  const data = useStaticQuery(query);
   return (
     <section
       className={classes.root}
       id="Our-Group"
     >
       <Title title="醫師團隊" color="#fff"/>
-      <div className={classes.slide}>
-        <Carousel />
+      <div className={classes.content}>
+        <DocCard />
       </div>
     </section>
   );
 };
-
-export const query = graphql`
-  {
-    file(relativePath: { eq: "child.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 export default introDoc;
