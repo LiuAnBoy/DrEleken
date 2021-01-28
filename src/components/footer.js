@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
     padding: "50px 0 0",
     // background: "linear-gradient(30deg, #039696 20%, #039b9b 80%)",
     background: "#f4fafd",
+    fontFamily: "Roboto",
   },
   container: {
     display: "flex",

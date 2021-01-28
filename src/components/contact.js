@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row",
     justifyContent: "center",
     background: "linear-gradient(30deg, #04c8c8 20%, #2abbbb 80%)",
+    fontFamily: "Roboto",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
@@ -151,8 +152,8 @@ const contact = ({ assessmentData }) => {
   });
   const [assessment, setAssessment] = useState();
   useEffect(() => {
-    setAssessment(assessmentData)
-  })
+    setAssessment(assessmentData);
+  });
 
   const handleChange = e => {
     const targetName = e.target.name;
