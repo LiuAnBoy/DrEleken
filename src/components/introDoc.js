@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     maxWidth: "100%",
     background: "#40bdce",
+    [theme.breakpoints.down("xs")]: {
+      padding: "20px 0",
+    },
   },
   content: {
     margin: "80px auto",

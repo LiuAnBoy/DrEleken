@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "100vw",
     maxWidth: "100%",
-    padding: "50px 0 50px",
+    padding: "50px 0",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Roboto",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
+      padding: "20px 0 40px",
     },
   },
   card: {
@@ -34,11 +35,19 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     margin: "0 20px",
+    "&>h5": {
+      fontSize: 14,
+      fontWeight: 300,
+      color: "#fff",
+    },
   },
   title: {
     fontSize: 48,
     fontWeight: 300,
     color: "#fff",
+    [theme.breakpoints.down("xs")]: {
+      margin: "20px 0 40px",
+    },
   },
   p: {
     fontSize: 28,

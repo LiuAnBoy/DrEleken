@@ -9,14 +9,19 @@ const useStyles = makeStyles(theme => ({
     // background: "linear-gradient(30deg, #039696 20%, #039b9b 80%)",
     background: "#f4fafd",
     fontFamily: "Roboto",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+      padding: "20px 0 0",
+    },
   },
   container: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    padding: "0 0 20px",
+    padding: "0 0 50px",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
+      padding: "0 0 40px",
     },
   },
   contact: {
@@ -34,6 +39,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: 36,
     fontWeight: 400,
     color: "#40bdce",
+    [theme.breakpoints.down("xs")]: {
+      margin: "20px 0 30px",
+    },
   },
   subtitle: {
     fontSize: 18,

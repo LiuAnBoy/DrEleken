@@ -16,8 +16,11 @@ import { Button, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "80px 0",
+    padding: "50px 0",
     background: "#f4fafd",
+    [theme.breakpoints.down("xs")]: {
+      padding: "20px 0",
+    },
   },
   card: {
     width: 800,
