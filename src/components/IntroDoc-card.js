@@ -72,6 +72,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       width: "84vw",
       margin: "0 auto",
+      fontSize: "3.2vw",
     },
   },
   content: {

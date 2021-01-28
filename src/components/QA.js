@@ -69,7 +69,10 @@ const QA = () => {
 
 export const query = graphql`
   {
-    allFile(filter: { relativePath: { regex: "/^Q[1-9].jpg/" } }) {
+    allFile(
+      filter: { relativePath: { regex: "/^Q[1-9].jpg/" } }
+      sort: { fields: relativePath }
+    ) {
       nodes {
         childImageSharp {
           fluid {
