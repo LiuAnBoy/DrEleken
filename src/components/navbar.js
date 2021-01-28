@@ -90,7 +90,7 @@ export const Header = props => {
 
   return (
     <div id="back-to-top-anchor" className={classes.root}>
-      <AppBar className={classes.appBar} color="inherit">
+      <AppBar className={classes.appBar} color="inherit" elevation={0}>
         <Toolbar className={classes.toolBar}>
           <Link to="/">
             <Img
@@ -98,7 +98,7 @@ export const Header = props => {
               className={classes.img}
             />
           </Link>
-          <NavLink Display={classes.test}/>
+          <NavLink Display={classes.test} />
           <div className={classes.sideBarBtn} onClick={handleOpen}>
             <BookmarkIcon style={{ fontSize: "48px", color: "#00b3b3" }} />
           </div>

@@ -59,12 +59,18 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("md")]: {
       fontSize: "2vw",
     },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "4vw",
+    },
   },
   typo: {
     fontSize: 18,
     fontWeight: 300,
     [theme.breakpoints.down("md")]: {
       fontSize: "1.6vw",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "3.2vw",
     },
   },
 }));

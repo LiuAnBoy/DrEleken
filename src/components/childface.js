@@ -49,7 +49,6 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("xs")]: {
       width: "91.4vw",
-      height: "53vw",
       padding: "0"
     },
   },
@@ -62,6 +61,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("md")]: {
       fontSize: 30,
       margin: "0",
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: "0 0 7px",
     },
   },
   title: {
@@ -92,7 +94,8 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "3.6vw",
-      lineHeight: "5.2vw",
+      lineHeight: "6vw",
+      fontWeight: 300,
     },
   },
 }));
@@ -109,8 +112,8 @@ const childface = () => {
           <FormatQuoteIcon className={classes.icon} />
           <Typography variant="h6" className={classes.content}>
             <p className={classes.title}>你知道嗎？</p>
-            每10個小朋友就有7.5個顎骨發育不良。許多家長認為孩子會換牙，不需要去注意牙齒問題，進而忽略了孩子顎骨的發育問題。
-            。7歲~10歲的孩童處於成長發育階段，是治療的黃金期。肯恩象醫生團隊堅持顏面管理一定要營養、睡眠、矯正、生長發育、大腦發育5大方面同時進行，因為它們是息息相關不可分割的關聯。
+            每10個小朋友就有7.5個顎骨發育不良。許多家長認為孩子會換牙，不需要去注意牙齒問題，進而忽略了孩子顎骨的發育問題。<br/>
+            7歲~10歲的孩童處於成長發育階段，是治療的黃金期。肯恩象醫生團隊堅持顏面管理一定要營養、睡眠、矯正、生長發育、大腦發育5大方面同時進行，因為它們是息息相關不可分割的關聯。
           </Typography>
         </CardContent>
       </Card>
