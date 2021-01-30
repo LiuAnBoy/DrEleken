@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     width: 590,
     margin: "0 20px",
+    
     [theme.breakpoints.down("xs")]: {
       width: 343,
       margin: "0 auto",
@@ -36,9 +37,9 @@ const useStyles = makeStyles(theme => ({
   content: {
     margin: "0 20px",
     "&>h5": {
-      fontSize: 14,
-      fontWeight: 300,
       color: "#fff",
+      fontSize: 16,
+      fontWeight: 300,
     },
   },
   title: {
@@ -68,11 +69,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-around",
   },
   textboxSmall: {
-    width: 260,
+    width: "46.4%",
     margin: "10px 10px",
-    [theme.breakpoints.down("lg")]: {
-      width: 200,
-    },
     [theme.breakpoints.down("md")]: {
       width: 140,
     },
@@ -83,9 +81,6 @@ const useStyles = makeStyles(theme => ({
   textboxBig: {
     width: 540,
     margin: "10px 10px",
-    [theme.breakpoints.down("lg")]: {
-      width: 420,
-    },
     [theme.breakpoints.down("md")]: {
       width: 300,
     },

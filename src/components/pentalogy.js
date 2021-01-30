@@ -77,7 +77,6 @@ const Pentalogy = () => {
     const anchor = document.getElementById("Contact-Us");
     const headerOffset = 90;
     const elementPosition = anchor.offsetTop;
-    console.log(elementPosition);
     const offsetPosition = elementPosition - headerOffset;
 
     if (anchor) {

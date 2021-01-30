@@ -54,7 +54,6 @@ export const sendEmail = ({
     templateParams.Q11 = Q11;
   }
 
-  console.log(templateParams)
 
   emailjs
     .send(serviceID, templateID, templateParams, userID)
@@ -62,7 +61,6 @@ export const sendEmail = ({
       onButtonStatusChange(SEND_SUCCESS);
     })
     .catch(async error => {
-      console.log(error);
       onButtonStatusChange(SEND_FAIL);
     })
     .finally(async () => {

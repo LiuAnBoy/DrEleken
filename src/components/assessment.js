@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
       width: 600,
     },
     [theme.breakpoints.down("xs")]: {
-      width: 343,
+      width: "91.4vw",
     },
   },
   Title: {
