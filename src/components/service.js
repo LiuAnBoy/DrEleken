@@ -73,7 +73,7 @@ const service = () => {
           <Typography variant="h6" className={classes.typo} >
             診所地址 : 437台中市大甲區中華街85號
             <br />
-            預約電話 : 04-268-66662
+            預約電話 : 04-2686-6000
             <br />
             營業時間 : 週一～週五 9:00-20:30
             <br />
