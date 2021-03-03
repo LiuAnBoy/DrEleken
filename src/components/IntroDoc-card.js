@@ -17,18 +17,23 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "start",
+    width: "89%",
+    flexWrap: "wrap",
     fontFamily: "Roboto",
+    margin: "0 auto",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
+      justifyItems: "center",
+      width: "100%",
     },
   },
   card: {
     width: "18vw",
     padding: "3vw 0",
     boxShadow: "none",
-    margin: "0 2vw",
+    margin: "2vw 2vw 0",
     [theme.breakpoints.down("xs")]: {
       padding: "10vw 0",
       width: "91.4vw",
