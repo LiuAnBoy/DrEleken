@@ -5,13 +5,9 @@ import Img from "gatsby-image";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import { Button, Collapse } from "@material-ui/core";
-import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
   root: {

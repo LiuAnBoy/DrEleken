@@ -17,6 +17,16 @@ const useStyles = makeStyles(theme => ({
       flexDirection: "column",
     },
   },
+  clinic: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+      justifyContent: "center",
+    },
+  },
   card: {
     width: 450,
     height: 460,
@@ -37,8 +47,12 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       margin: " 50px auto 10px",
       width: 343,
-      height: 390,
+      height: 460,
     },
+  },
+  img: {
+    width: "100%",
+    height: 300,
   },
   font: {
     fontSize: 18,
@@ -53,6 +67,10 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
     },
   },
+  businessHours: {
+    display: "inline-block",
+    marginRight: 8,
+  },
 }));
 
 const service = () => {
@@ -61,26 +79,36 @@ const service = () => {
   return (
     <section className={classes.root}>
       <Title title="服務診所" />
-      <Card className={classes.card}>
-        <CardMedia>
-          <Img
-            fluid={data.file.childImageSharp.fluid}
-            className={classes.img}
-          />
-        </CardMedia>
-        <CardContent>
-          <div className={classes.font}>大甲精品牙醫</div>
-          <Typography variant="h6" className={classes.typo} >
-            診所地址 : 437台中市大甲區中華街85號
-            <br />
-            預約電話 : 04-2686-6000
-            <br />
-            營業時間 : 週一～週五 9:00-20:30
-            <br />
-            週六 9:00-17:30(週日全日公休)
-          </Typography>
-        </CardContent>
-      </Card>
+      <div className={classes.clinic}>
+        {data.allContentfulClinics.nodes.map((clinic, index) => {
+          const { image, name, phone, address, id } = clinic;
+          return (
+            <Card className={classes.card} key={index}>
+              <CardMedia>
+                <Img fluid={image.fluid} className={classes.img} />
+              </CardMedia>
+              <CardContent>
+                <div className={classes.font}>{name}</div>
+                <Typography variant="h6" className={classes.typo}>
+                  診所地址 : {address}
+                  <br />
+                  預約電話 : {phone}
+                  <br />
+                  營業時間 :{" "}
+                  {clinic.businessHours.map((time, index) => {
+                    return (
+                      <div className={classes.businessHours} key={index}>
+                        {time}
+                        <br />
+                      </div>
+                    );
+                  })}
+                </Typography>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
       {/* TODO 陸續增加中．．． */}
     </section>
   );
@@ -88,11 +116,25 @@ const service = () => {
 
 export const query = graphql`
   {
-    file(relativePath: { eq: "clinic.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
+    allContentfulClinics(sort: { fields: createdAt, order: ASC }) {
+      nodes {
+        image {
+          fluid {
+            src
+            aspectRatio
+            base64
+            sizes
+            srcSet
+            srcSetWebp
+            srcWebp
+            tracedSVG
+          }
         }
+        name
+        phone
+        businessHours
+        id
+        address
       }
     }
   }
